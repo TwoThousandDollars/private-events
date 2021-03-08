@@ -5,20 +5,10 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.7.2
 
-* System dependencies
+* Based on The Odin Project's Eventbright Project found here: https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations
 
-* Configuration
+* This web app allows users to create events and add other users to that event as guests.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* It will keep track of and display all active events, as well as a list of attendees

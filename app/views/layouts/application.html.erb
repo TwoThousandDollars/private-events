@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <% if !session[:user_id].nil? %>
+      <%= current_user.username %>
+      <%= button_to "Log Out", '/logout', method: :delete %>
+    <% else %>
+      <%= button_to "Login", '/login', method: :get%>
+      <%= button_to "Sign Up", '/users/new', method: :get%>
+    <% end %>
     <%= yield %>
   </body>
 </html>
