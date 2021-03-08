@@ -2,8 +2,25 @@
 
 <p>
   <strong>Username:</strong>
-  <%= @user.username %>
+  <%= @user.username %> <br>
+  <hr>
+
+  <strong>
+    Events <%= @user.username %> is hosting
+  </strong>
+  <br>
+  <% @events.each do |event| %>
+    
+    <strong>Event Name:</strong>
+    <%= event.name %> <br>
+    
+    <strong>Location:</strong>
+    <%= event.location %> <br>
+    
+    <strong>Date:</strong>
+    <%= event.date %> <br>
+  <% end %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+
 <%= link_to 'Back', users_path %>

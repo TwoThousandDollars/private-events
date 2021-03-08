@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    @events = Event.where("host_id = ?", @user.id)
   end
 
   # GET /users/new
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
 
 
-    redirect_to '/welcome'
+    redirect_to root_path
   end
 
   private
