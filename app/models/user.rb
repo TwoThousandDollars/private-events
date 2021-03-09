@@ -1,3 +1,5 @@
 class User < ApplicationRecord
-    has_many :events, foreign_key: "host_id", class_name: "Event"
+    has_many :events, inverse_of: :host
+    has_many :attended_events, through: :rsvps, source: :events
+    has_many :rsvps
 end

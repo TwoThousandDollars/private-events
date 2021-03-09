@@ -20,5 +20,9 @@
   <%= link_to @event.host.username, user_path(@event.host_id) %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<% @event.rsvps.each do |attendee| %>
+  <%= attendee.user_id.username %>
+<% end %>
+
+<%= link_to 'Attend', attend_event_path(@event), method: 'post' %> |
 <%= link_to 'Back', events_path %>

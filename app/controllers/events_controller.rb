@@ -56,6 +56,20 @@ class EventsController < ApplicationController
     end
   end
 
+  def attend
+    rsvp = Rsvp.new(event_id: params[:id], user_id: current_user.id)
+    # rsvp.save
+    # redirect_to root_path
+
+    if rsvp.save
+      flash[:notice] = "successfully attended"
+      # Write a query that finds all attendees for this event and then pass a variable called attendees
+      redirect_to root_path
+    else
+      redirect_to users_path
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event

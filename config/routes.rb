@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    post 'attend', on: :member
+  end
   resources :users
 
   get 'login', to: 'sessions#new'
