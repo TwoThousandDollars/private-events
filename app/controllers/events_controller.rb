@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @attendees = get_attendees(@event)
   end
 
   # GET /events/new
@@ -79,5 +80,15 @@ class EventsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def event_params
       params.require(:event).permit(:date, :location, :name, :host_id)
+    end
+
+    def get_attendees(event, attendees=[])      
+      
+      event.rsvps.each do |rsvp|
+        attendees << rsvp.user_id
+      end
+      
+      User.where({ id: attendees })
+
     end
 end
